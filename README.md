@@ -1,5 +1,7 @@
 # NixOS-Configuration
 
+Ignore this repository. I'm new to Nix/NixOS and am now trying to learn it.
+
 ## Setup
 
 ```console
