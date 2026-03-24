@@ -47,6 +47,8 @@ in
     LC_TIME = "de_DE.UTF-8";
   };
 
+  virtualisation.virtualbox.guest.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
