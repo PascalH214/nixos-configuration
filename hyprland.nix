@@ -289,58 +289,25 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
+
+      windowrulev2 = [
+        "float,title:^(Sign in to Steam|Discord Updater)$"
+        "opacity 0.45,title:^(Sign in to Steam|Discord Updater)$"
+        "move 100%-w-16 100%-h-16,title:^(Sign in to Steam|Discord Updater)$"
+
+        "opacity 0.95,class:^(steam)$"
+        "workspace 9,class:^(steam)$"
+
+        "opacity 0.95,class:^(discord)$"
+        "workspace special:magic,class:^(discord)$"
+
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
+        "nofocus,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "noblur,class:^(xwaylandvideobridge)$"
+        "maxsize 1 1,class:^(xwaylandvideobridge)$"
+        "opacity 0.0,class:^(xwaylandvideobridge)$"
+      ];
     };
-
-    extraConfig = ''
-      windowrule {
-        name = steam-discord-login
-
-        match {
-          initial_title = Sign in to Steam|Discord Updater
-        }
-
-        float = true
-        opacity = 0.45
-        move = (monitor_w-window_w-16) (monitor_h-window_h-16)
-      }
-
-      windowrule {
-        name = steam-workspace
-
-        match {
-          class = steam
-          initial_class = steam
-        }
-
-        opacity = 0.95
-        workspace = 9
-      }
-
-      windowrule {
-        name = discord-workspace
-
-        match {
-          class = discord
-          initial_class = discord
-        }
-
-        opacity = 0.95
-        workspace = special:magic
-      }
-
-      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
-      windowrule {
-          name = xwayland-video-bridge-fixes
-          match:class = xwaylandvideobridge
-
-          no_initial_focus = true
-          no_focus = true
-          no_anim = true
-          no_blur = true
-          max_size = 1 1
-          opacity = 0.0
-      }
-    '';
   };
 }
