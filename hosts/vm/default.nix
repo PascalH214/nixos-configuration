@@ -11,6 +11,6 @@
   virtualisation.virtualbox.guest.enable = true;
 
   home-manager.extraSpecialArgs = {
-    hyprMainMod = "SHIFT_R";
+    hyprMainMod = "ALT_R SHIFT_R";
   };
 }
