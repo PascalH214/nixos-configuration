@@ -4,14 +4,13 @@
 
 { config, pkgs, lib, ... }:
 
-let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz;
-in
 {
   imports =
     [
-      (import "${home-manager}/nixos")
       ./hardware-configuration.nix
+      ./users.nix
+      ./home-manager.nix
+      ./system-packages.nix
     ];
 
   # Bootloader.
@@ -63,40 +62,6 @@ in
   };
 
   programs.hyprland.enable = true;
-
-  users.users.pascal = {
-    isNormalUser = true;
-    description = "pascal";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
-
-  home-manager.users.pascal = { pkgs, ... }: {
-    programs = {
-      bash.enable = true;
-      kitty.enable = true;
-      git = {
-        enable = true;
-	settings = {
-	  user = {
-	    email = "pascal02012004@freenet.de";
-	    username = "PascalH214";
-	  };
-	};
-      };
-    };
-
-    wayland.windowManager.hyprland = {
-      enable = true;
-    };
-
-    home.stateVersion = "25.11";
-  };
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-  ];
 
   system.stateVersion = "25.11";
 }
