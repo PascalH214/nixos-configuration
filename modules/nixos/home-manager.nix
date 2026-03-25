@@ -23,9 +23,14 @@ in
       vscode = {
         enable = true;
         package = pkgs.vscodium;
-            };
-            git = {
-              enable = true;
+        profiles.default.extensions = with pkgs.vscode-extensions; [
+          vscodevim.vim
+          yzhang.markdown-all-in-one
+          jnoortheen.nix-ide
+        ];
+      };
+      git = {
+        enable = true;
         settings = {
           user = {
             email = "pascal02012004@freenet.de";
