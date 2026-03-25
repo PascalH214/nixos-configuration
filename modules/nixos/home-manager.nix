@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz;
@@ -8,9 +8,13 @@ in
     (import "${home-manager}/nixos")
   ];
 
+  home-manager.extraSpecialArgs = {
+    hyprMainMod = lib.mkDefault "SUPER";
+  };
+
   home-manager.users.pascal = { pkgs, ... }: {
     imports = [
-      ./hyprland.nix
+      ../../hyprland.nix
     ];
 
     programs = {

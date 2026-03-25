@@ -1,4 +1,4 @@
-{ ... }:
+{ hyprMainMod ? "SUPER", ... }:
 
 {
   home.file = {
@@ -61,7 +61,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "yazi";
       "$menu" = "ags request toggle-launcher";
-      "$mainMod" = "SUPER";
+      "$mainMod" = hyprMainMod;
 
       monitor = [
         "DP-3, 5120x1440@240, 0x0, 1, bitdepth, 10"
