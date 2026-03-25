@@ -1,6 +1,59 @@
 { ... }:
 
 {
+  home.file = {
+    ".config/hypr/scripts/app-volume.sh" = {
+      source = ./hypr-scripts/app-volume.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/main-watchers.sh" = {
+      source = ./hypr-scripts/main-watchers.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/output-device.sh" = {
+      source = ./hypr-scripts/output-device.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/toggle_layout.sh" = {
+      source = ./hypr-scripts/toggle_layout.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/toggle_resolution.sh" = {
+      source = ./hypr-scripts/toggle_resolution.sh;
+      executable = true;
+    };
+
+    ".config/hypr/scripts/enforcer/enforce-overwatch-fullscreen.sh" = {
+      source = ./hypr-scripts/enforcer/enforce-overwatch-fullscreen.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/enforcer/enforce-special.sh" = {
+      source = ./hypr-scripts/enforcer/enforce-special.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/enforcer/enforce-workspace-by-class.sh" = {
+      source = ./hypr-scripts/enforcer/enforce-workspace-by-class.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/enforcer/enforce-workspace9.sh" = {
+      source = ./hypr-scripts/enforcer/enforce-workspace9.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/enforcer/list-clients.sh" = {
+      source = ./hypr-scripts/enforcer/list-clients.sh;
+      executable = true;
+    };
+
+    # toggle_layout.sh persists orientation in this file.
+    ".config/hypr/layout.conf".text = ''
+      master {
+        orientation                   = center
+        mfact                         = 0.40
+        slave_count_for_center_master = 0
+      }
+    '';
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
