@@ -178,6 +178,7 @@
         "$mainMod, P, pseudo,"
         "$mainMod, BACKSPACE, exec, ags request toggle-power-menu"
         "$mainMod CTRL, BACKSPACE, exec, hyprlock"
+        "$mainMod, Delete, exit,"
         "$mainMod ALT, K, exec, hyprctl switchxkblayout all next"
         "$mainMod, F1, exec, ~/.config/hypr/gamemode.sh"
 
