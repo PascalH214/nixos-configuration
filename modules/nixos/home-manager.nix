@@ -20,14 +20,18 @@ in
     programs = {
       bash.enable = true;
       kitty.enable = true;
-      git = {
+      vscode = {
         enable = true;
-	settings = {
-	  user = {
-	    email = "pascal02012004@freenet.de";
-	    username = "PascalH214";
-	  };
-	};
+        package = pkgs.vscodium;
+            };
+            git = {
+              enable = true;
+        settings = {
+          user = {
+            email = "pascal02012004@freenet.de";
+            username = "PascalH214";
+          };
+        };
       };
     };
 
