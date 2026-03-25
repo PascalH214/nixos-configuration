@@ -9,6 +9,10 @@ in
   ];
 
   home-manager.users.pascal = { pkgs, ... }: {
+    imports = [
+      ./hyprland.nix
+    ];
+
     programs = {
       bash.enable = true;
       kitty.enable = true;
@@ -21,10 +25,6 @@ in
 	  };
 	};
       };
-    };
-
-    wayland.windowManager.hyprland = {
-      enable = true;
     };
 
     home.stateVersion = "25.11";
