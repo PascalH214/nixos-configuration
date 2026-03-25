@@ -17,13 +17,7 @@ in
       ../../hyprland.nix
     ];
 
-    xdg.configFile = {
-      "btop/btop.conf".source = ../../home/dot_config/btop/btop.conf;
-      "btop/themes/catppuccin_mocha.theme".source = ../../home/dot_config/btop/themes/catppuccin_mocha.theme;
-    };
-
     programs = {
-      btop.enable = true;
       bash.enable = true;
       kitty.enable = true;
       git = {
